@@ -1,0 +1,12 @@
+/* static/css/admin.css */
+/* Add your admin panel styles here */
+#admin-dashboard {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+#admin-dashboard h2 {
+  color: #e44d26;
+}

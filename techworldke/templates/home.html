@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% block content %}
+<section id="hero">
+  <h2>Welcome to Our E-commerce Store!</h2>
+  <p>Discover the latest in technology.</p>
+  <a href="{{ url_for('product.product_list') }}" class="cta-button"
+    >Explore Products</a
+  >
+</section>
+
+<section id="featured-products">
+  <h3>Featured Products</h3>
+  <div class="product-card">
+    <img
+      src="{{ url_for('static', filename='images/product1.jpg') }}"
+      alt="Product 1" />
+    <h3>Product 1</h3>
+    <p>Description of Product 1.</p>
+    <span>{{ '99.99'|format_price }}</span>
+    <a href="{{ url_for('product.product_detail', product_id=1) }}"
+      >View Details</a
+    >
+  </div>
+  <!-- Repeat the product card structure for other featured products -->
+</section>
+{% endblock %}

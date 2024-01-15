@@ -1,0 +1,23 @@
+<!-- templates/user/user_account.html -->
+{% extends 'base/base.html' %} {% block content %}
+<section id="user-account">
+  <h2>Your Account</h2>
+  <div id="order-history">
+    <h3>Order History</h3>
+    <div class="order-chart">
+      <!-- Display order history using a visual chart or graph -->
+    </div>
+    <ul>
+      {% for order in orders %}
+      <li>Order #{{ order.id }} - {{ order.total|format_price }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div id="account-settings">
+    <h3>Account Settings</h3>
+    <p>Username: {{ current_user.username }}</p>
+    <p>Email: {{ current_user.email }}</p>
+    <a href="{{ url_for('auth.change_password') }}">Change Password</a>
+  </div>
+</section>
+{% endblock %}

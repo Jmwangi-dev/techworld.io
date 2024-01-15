@@ -1,0 +1,12 @@
+<!-- Product Management -->
+<div class="admin-section">
+  <h3>Product Management</h3>
+  <ul>
+    {% for product in products %}
+    <li>
+      Product ID: {{ product.id }}, Name: {{ product.name }}, Price: {{
+      product.price }}, Stock: {{ product.stock }}
+    </li>
+    {% endfor %}
+  </ul>
+</div>

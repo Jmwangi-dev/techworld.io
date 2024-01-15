@@ -1,0 +1,21 @@
+<!-- templates/product/product_list.html -->
+{% extends 'base/base.html' %} {% block content %}
+<section id="product-list">
+  <h2>Our Products</h2>
+  <div class="product-grid">
+    {% for product in products %}
+    <div class="product-card">
+      <img
+        src="{{ url_for('static', filename='images/product' + product.id|string + '.jpg') }}"
+        alt="{{ product.name }}" />
+      <h3>{{ product.name }}</h3>
+      <p>{{ product.description }}</p>
+      <span>{{ product.price|format_price }}</span>
+      <a href="{{ url_for('product.product_detail', product_id=product.id) }}">
+        View Details
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

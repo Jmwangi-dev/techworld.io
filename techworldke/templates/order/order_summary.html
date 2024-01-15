@@ -1,0 +1,24 @@
+<!-- templates/order_summary.html -->
+{% extends 'base.html' %} {% block content %}
+<section id="order-summary">
+  <h2>Order Summary</h2>
+  <ul>
+    {% for item in cart_items %}
+    <li>
+      <img
+        src="{{ url_for('static', filename='images/product' + item.product_id|string + '.jpg') }}"
+        alt="{{ item.product.name }}" />
+      <span>{{ item.product.name }}</span>
+      <span>{{ item.product.price|format_price }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+  <div id="total-summary">
+    <h3>Total Summary</h3>
+    <p>Subtotal: {{ cart_subtotal|format_price }}</p>
+    <p>Shipping: $5.00</p>
+    <h4>Total: {{ cart_total|format_price }}</h4>
+    <a href="{{ url_for('order.checkout') }}">Proceed to Checkout</a>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,22 @@
+<!-- templates/auth/login.html -->
+{% extends 'base/base.html' %} {% block content %}
+<section id="login">
+  <h2>Login</h2>
+  <form action="{{ url_for('auth.login') }}" method="POST">
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" required />
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" required />
+
+    <div class="remember-me">
+      <input type="checkbox" id="remember_me" name="remember_me" />
+      <label for="remember_me">Remember Me</label>
+    </div>
+
+    <!-- Add more authentication fields as needed -->
+
+    <button type="submit">Login</button>
+  </form>
+</section>
+{% endblock %}

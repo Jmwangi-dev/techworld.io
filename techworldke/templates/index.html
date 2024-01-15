@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}" />
+    <!-- Add more meta tags or links as needed -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/main.css') }}" />
+    <title>Your E-commerce Website</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <h1>Your Logo</h1>
+      </div>
+      <nav class="navbar">
+        <div class="menu-icon">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <ul class="nav-list">
+          <li><a href="/">Home</a></li>
+          <li><a href="{{ url_for('product.product_list') }}">Products</a></li>
+          <li><a href="{{ url_for('cart') }}">Cart</a></li>
+          <li><a href="{{ url_for('order.checkout') }}">Checkout</a></li>
+          <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+          <!-- Add more navigation links as needed -->
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      {% block content %}{% endblock %}
+      <section id="hero">
+        <h2>Welcome to Our E-commerce Store!</h2>
+        <p>Discover the latest in technology.</p>
+        <a href="{{ url_for('product.product_list') }}" class="cta-button">
+          Explore Products
+        </a>
+      </section>
+
+      <section id="featured-products">
+        <h3>Featured Products</h3>
+        <div class="product-card">
+          <img
+            src="{{ url_for('static', filename='images/product1.jpg') }}"
+            alt="Product 1" />
+          <div class="product-info">
+            <h3>Product 1</h3>
+            <p>Description of Product 1.</p>
+            <span>{{ '99.99'|format_price }}</span>
+            <a href="{{ url_for('product.product_detail', product_id=1) }}"
+              >View Details</a
+            >
+          </div>
+        </div>
+        <!-- Repeat the product card structure for other featured products -->
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Your E-commerce Website. All rights reserved.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script>
+      // Add JavaScript for responsive navigation
+      document.addEventListener("DOMContentLoaded", function () {
+        const menuIcon = document.querySelector(".menu-icon");
+        const navList = document.querySelector(".nav-list");
+
+        menuIcon.addEventListener("click", function () {
+          navList.classList.toggle("show");
+        });
+      });
+    </script>
+  </body>
+</html>

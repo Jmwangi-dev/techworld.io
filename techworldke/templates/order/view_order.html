@@ -1,0 +1,14 @@
+<!-- templates/order/view_order.html -->
+{% extends 'base/base.html' %} {% block content %}
+<section id="order-summary">
+  <h2>Order Summary</h2>
+  <div class="order-details">
+    <!-- Display order details such as order number, tracking information, etc. -->
+
+    <div class="order-actions">
+      <a href="{{ url_for('order.track_order') }}">Track Order</a>
+      <a href="{{ url_for('customer_support') }}">Customer Support</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

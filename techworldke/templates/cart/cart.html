@@ -1,0 +1,27 @@
+<!-- templates/cart/cart.html -->
+{% extends 'base/base.html' %} {% block content %}
+<section id="shopping-cart">
+  <h2>Your Shopping Cart</h2>
+  <div class="cart-items">
+    {% for item in cart_items %}
+    <div class="cart-item">
+      <img
+        src="{{ url_for('static', filename='images/product' + item.product_id|string + '.jpg') }}"
+        alt="{{ item.product.name }}" />
+      <span>{{ item.product.name }}</span>
+      <span>{{ item.product.price|format_price }}</span>
+      <button class="remove-from-cart-button" data-cart-item-id="{{ item.id }}">
+        Remove
+      </button>
+    </div>
+    {% endfor %}
+  </div>
+  <div id="order-summary">
+    <h3>Order Summary</h3>
+    <p>Subtotal: {{ cart_subtotal|format_price }}</p>
+    <p>Shipping: $5.00</p>
+    <h4>Total: {{ cart_total|format_price }}</h4>
+    <a href="{{ url_for('order.checkout') }}">Proceed to Checkout</a>
+  </div>
+</section>
+{% endblock %}

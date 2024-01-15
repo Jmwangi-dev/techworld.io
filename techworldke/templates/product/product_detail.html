@@ -1,0 +1,13 @@
+<!-- templates/product/product_detail.html -->
+{% extends 'base/base.html' %} {% block content %}
+<section id="product-detail">
+  <img
+    src="{{ url_for('static', filename='images/product' + product.id|string + '.jpg') }}"
+    alt="{{ product.name }}" />
+  <h2>{{ product.name }}</h2>
+  <p>{{ product.description }}</p>
+  <span>{{ product.price|format_price }}</span>
+  <button>Add to Cart</button>
+  <!-- Add more details, specifications, and reviews as needed -->
+</section>
+{% endblock %}

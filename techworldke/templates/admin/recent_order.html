@@ -1,0 +1,10 @@
+<!-- Recent Orders -->
+<div class="admin-section">
+    <h3>Recent Orders</h3>
+    <ul>
+      {% for order in orders %}
+        <li>Order ID: {{ order.id }}, Customer: {{ order.customer_name }}, Date: {{ order.order_date }}, Status: {{ order.status }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  

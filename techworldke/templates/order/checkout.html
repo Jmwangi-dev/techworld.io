@@ -1,0 +1,53 @@
+<!-- templates/order/checkout.html -->
+{% extends 'base/base.html' %} {% block content %}
+<section id="checkout">
+  <h2>Checkout</h2>
+  <div class="checkout-wizard">
+    <div class="wizard-step active">
+      <span>1</span>
+      <p>Shipping Details</p>
+    </div>
+    <div class="wizard-step">
+      <span>2</span>
+      <p>Payment</p>
+    </div>
+    <div class="wizard-step">
+      <span>3</span>
+      <p>Review</p>
+    </div>
+  </div>
+
+  <form action="{{ url_for('order.place_order') }}" method="POST">
+    <!-- Shipping Details Form -->
+    <div class="form-step active">
+      <label for="full_name">Full Name</label>
+      <input type="text" id="full_name" name="full_name" required />
+
+      <label for="address">Address</label>
+      <textarea id="address" name="address" required></textarea>
+
+      <!-- Add more shipping details fields as needed -->
+
+      <button type="button" class="next-step">Next</button>
+    </div>
+
+    <!-- Payment Form (Step 2) -->
+    <div class="form-step">
+      <!-- Add payment details fields here -->
+
+      <button type="button" class="prev-step">Previous</button>
+      <button type="button" class="next-step">Next</button>
+    </div>
+
+    <!-- Review (Step 3) -->
+    <div class="form-step">
+      <!-- Display a summary of the order for review -->
+
+      <button type="button" class="prev-step">Previous</button>
+      <button type="submit">Place Order</button>
+    </div>
+  </form>
+</section>
+
+<script src="{{ url_for('static', filename='js/checkout.js') }}"></script>
+{% endblock %}

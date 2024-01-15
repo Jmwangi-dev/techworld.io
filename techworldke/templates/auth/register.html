@@ -1,0 +1,11 @@
+<!-- templates/auth/register.html -->
+{% extends 'base/base.html' %} {% block content %}
+<section id="register">
+  <h2>Register</h2>
+  <form action="{{ url_for('auth.register') }}" method="POST">
+    <!-- Add registration form fields here -->
+
+    <button type="submit">Register</button>
+  </form>
+</section>
+{% endblock %}
